@@ -26,7 +26,7 @@ export function Header() {
     <header className={scrolled ? "topo topo--scrolled" : "topo"}>
       <div className="topo-interno">
         <NavLink className="marca" to="/" aria-label={t.meta.org}>
-          <img src="/logos/logo-cbso.svg" alt={t.meta.org} width={200} height={124} />
+          <img src="/logos/logo-horizontal.png" alt={t.meta.org} width={1024} height={280} />
         </NavLink>
 
         <nav className="nav-principal" aria-label="Menu">
@@ -37,9 +37,7 @@ export function Header() {
               </button>
               <ul className="submenu">
                 <li><NavLink to="/about">{t.nav.story}</NavLink></li>
-                <li><NavLink to="/certifications">{t.nav.certifications}</NavLink></li>
-                <li><NavLink to="/partners">{t.nav.partners}</NavLink></li>
-                <li><NavLink to="/impact">{t.nav.impact}</NavLink></li>
+                <li><NavLink to="/experience">{t.nav.experience}</NavLink></li>
               </ul>
             </li>
             <li className="grupo">
@@ -47,19 +45,9 @@ export function Header() {
                 {t.nav.what} <span className="seta">▾</span>
               </button>
               <ul className="submenu">
-                <li><NavLink to="/education">{t.nav.education}</NavLink></li>
-                <li><NavLink to="/arts-and-culture">{t.nav.arts}</NavLink></li>
-                <li><NavLink to="/environment">{t.nav.environment}</NavLink></li>
-                <li><NavLink to="/entrepreneurship">{t.nav.entrepreneurship}</NavLink></li>
-              </ul>
-            </li>
-            <li className="grupo">
-              <button type="button">
-                {t.nav.programmes} <span className="seta">▾</span>
-              </button>
-              <ul className="submenu">
                 <li><NavLink to="/courses">{t.nav.courses}</NavLink></li>
-                <li><NavLink to="/new-talents">{t.nav.talents}</NavLink></li>
+                <li><NavLink to="/student-creation">{t.nav.creation}</NavLink></li>
+                <li><NavLink to="/heritage">{t.nav.heritage}</NavLink></li>
               </ul>
             </li>
             <li className="grupo">
@@ -67,9 +55,8 @@ export function Header() {
                 {t.nav.join} <span className="seta">▾</span>
               </button>
               <ul className="submenu">
-                <li><NavLink to="/membership">{t.nav.membership}</NavLink></li>
-                <li><NavLink to="/member-benefits">{t.nav.benefits}</NavLink></li>
-                <li><NavLink to="/supporters">{t.nav.supporters}</NavLink></li>
+                <li><NavLink to="/scholarships">{t.nav.scholarships}</NavLink></li>
+                <li><NavLink to="/sponsor">{t.nav.sponsor}</NavLink></li>
               </ul>
             </li>
             <li>
@@ -127,33 +114,22 @@ export function Header() {
               <p className="titulo">{t.nav.about}</p>
               <ul>
                 <li><NavLink to="/about">{t.nav.story}</NavLink></li>
-                <li><NavLink to="/certifications">{t.nav.certifications}</NavLink></li>
-                <li><NavLink to="/partners">{t.nav.partners}</NavLink></li>
-                <li><NavLink to="/impact">{t.nav.impact}</NavLink></li>
+                <li><NavLink to="/experience">{t.nav.experience}</NavLink></li>
               </ul>
             </div>
             <div className="bloco">
               <p className="titulo">{t.nav.what}</p>
               <ul>
-                <li><NavLink to="/education">{t.nav.education}</NavLink></li>
-                <li><NavLink to="/arts-and-culture">{t.nav.arts}</NavLink></li>
-                <li><NavLink to="/environment">{t.nav.environment}</NavLink></li>
-                <li><NavLink to="/entrepreneurship">{t.nav.entrepreneurship}</NavLink></li>
-              </ul>
-            </div>
-            <div className="bloco">
-              <p className="titulo">{t.nav.programmes}</p>
-              <ul>
                 <li><NavLink to="/courses">{t.nav.courses}</NavLink></li>
-                <li><NavLink to="/new-talents">{t.nav.talents}</NavLink></li>
+                <li><NavLink to="/student-creation">{t.nav.creation}</NavLink></li>
+                <li><NavLink to="/heritage">{t.nav.heritage}</NavLink></li>
               </ul>
             </div>
             <div className="bloco">
               <p className="titulo">{t.nav.join}</p>
               <ul>
-                <li><NavLink to="/membership">{t.nav.membership}</NavLink></li>
-                <li><NavLink to="/member-benefits">{t.nav.benefits}</NavLink></li>
-                <li><NavLink to="/supporters">{t.nav.supporters}</NavLink></li>
+                <li><NavLink to="/scholarships">{t.nav.scholarships}</NavLink></li>
+                <li><NavLink to="/sponsor">{t.nav.sponsor}</NavLink></li>
               </ul>
             </div>
             <div className="bloco">

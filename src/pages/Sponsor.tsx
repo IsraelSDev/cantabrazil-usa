@@ -13,12 +13,12 @@ export function Sponsor() {
         <div className="sponsor-layout">
           <div>
             <p>{c.p1}</p>
-            <h2>{c.h2}</h2>
             <ul className="lista">
               {c.list.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <p>{c.p2}</p>
             <div className="foto-dupla">
               <img src="/images/guitar.webp" alt="" />
               <img src="/images/piano.webp" alt="" />

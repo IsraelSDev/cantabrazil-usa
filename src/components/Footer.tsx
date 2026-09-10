@@ -21,9 +21,8 @@ export function Footer() {
         <nav aria-label={t.footer.explore}>
           <h3>{t.footer.explore}</h3>
           <NavLink to="/about">{t.nav.about}</NavLink>
-          <NavLink to="/education">{t.nav.what}</NavLink>
-          <NavLink to="/courses">{t.nav.programmes}</NavLink>
-          <NavLink to="/membership">{t.nav.join}</NavLink>
+          <NavLink to="/courses">{t.nav.courses}</NavLink>
+          <NavLink to="/scholarships">{t.nav.scholarships}</NavLink>
           <NavLink to="/contact">{t.nav.contact}</NavLink>
           <NavLink to="/sponsor">{t.nav.sponsor}</NavLink>
         </nav>

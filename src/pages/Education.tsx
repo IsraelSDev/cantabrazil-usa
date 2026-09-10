@@ -3,32 +3,34 @@ import { useI18n } from "../i18n/LanguageContext";
 
 export function Education() {
   const { t } = useI18n();
-  const c = t.education;
+  const c = t.experience;
 
   return (
     <>
       <PageHero title={c.title} subtitle={c.subtitle} image="/images/banner-education.webp" />
-      <article className="conteudo">
+      <article className="conteudo conteudo-largo">
         <img className="foto-pagina" src="/images/visao.jpg" alt="" style={{ height: "22rem", borderRadius: "1.1rem", marginBottom: "2rem" }} />
         <p>{c.p1}</p>
-        <p>{c.p2}</p>
-        <h2>{c.h2}</h2>
-        <p>{c.p3}</p>
-        <h3>{c.h3}</h3>
-        <ul className="lista">
-          {c.list.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-        <h2>{c.h4}</h2>
         <div className="grupo-idades">
-          {c.stages.map((stage) => (
+          {c.areas.map((area) => (
+            <article className="bloco-texto" key={area.title}>
+              <h3>{area.title}</h3>
+              <p className="muted">{area.text}</p>
+            </article>
+          ))}
+        </div>
+        <p style={{ marginTop: "2rem" }}>{c.close}</p>
+        <h2 id="generations">{c.generationsTitle}</h2>
+        <p>{c.generationsIntro}</p>
+        <div className="grupo-idades">
+          {c.generations.map((stage) => (
             <article className="bloco-texto" key={stage.title}>
               <h3>{stage.title}</h3>
               <p className="muted">{stage.text}</p>
             </article>
           ))}
         </div>
-        <h2>{c.whyTitle}</h2>
-        <p>{c.why}</p>
+        <p>{c.generationsNote}</p>
       </article>
     </>
   );

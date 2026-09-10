@@ -14,18 +14,64 @@ export function About() {
           <img src="/images/kids-outdoors.webp" alt="" />
           <img src="/images/community.webp" alt="" />
         </div>
-        <h2>{c.h1}</h2>
-        <p>{c.p1}</p>
-        <p>{c.p2}</p>
-        <p>{c.p3}</p>
-        <h2>{c.h2}</h2>
-        <p>{c.p4}</p>
-        <p>{c.p5}</p>
-        <p>{c.p6}</p>
-        <h2>{c.h3}</h2>
-        <p>{c.p7}</p>
+        {c.intro.map((p) => (
+          <p key={p.slice(0, 48)}>{p}</p>
+        ))}
+
+        <h2>{c.storyTitle}</h2>
+        <p className="chip">{c.storyKicker}</p>
+        {c.story.map((p) => (
+          <p key={p.slice(0, 48)}>{p}</p>
+        ))}
+
+        <h2>{c.brazilExpTitle}</h2>
+        {c.brazilExp.map((p) => (
+          <p key={p.slice(0, 48)}>{p}</p>
+        ))}
+        <p className="frase">{c.brazilExpClose}</p>
+      </article>
+
+      <section className="secao secao-suave" id="entities">
+        <div className="wrap">
+          <h2 className="titulo-secao">{c.entitiesTitle}</h2>
+          <div className="entidades">
+            <article className="entidade">
+              <p className="entidade-flag" aria-hidden="true">🇧🇷</p>
+              <p className="chip">{c.brazilName}</p>
+              <h3>{c.brazilOrg}</h3>
+              <ul className="lista">
+                {c.brazilItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="entidade">
+              <p className="entidade-flag" aria-hidden="true">🇺🇸</p>
+              <p className="chip">{c.usName}</p>
+              <h3>{c.usOrg}</h3>
+              <p className="muted" style={{ margin: "0.6rem 0 1rem" }}>{c.usBrand}</p>
+              <ul className="lista">
+                {c.usItems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+          </div>
+          <p className="lede" style={{ marginTop: "1.5rem" }}>{c.entitiesNote}</p>
+        </div>
+      </section>
+
+      <article className="conteudo">
+        <h2>{c.commitmentTitle}</h2>
+        <p>{c.commitmentIntro}</p>
+        <ul className="lista">
+          {c.commitmentList.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        <p>{c.commitmentClose}</p>
         <p style={{ marginTop: "2rem" }}>
-          <Link className="btn" to="/sponsor">{t.home.cta}</Link>
+          <Link className="btn" to="/courses">{t.home.cta}</Link>
         </p>
       </article>
     </>

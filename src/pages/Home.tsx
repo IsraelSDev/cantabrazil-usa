@@ -20,7 +20,7 @@ export function Home() {
           <h1 className="hero-in hero-in-2">{t.home.title}</h1>
           <p className="hero-texto hero-in hero-in-3">{t.home.text}</p>
           <p className="hero-acoes hero-in hero-in-4">
-            <Link className="btn" to="/sponsor">{t.home.cta}</Link>
+            <Link className="btn" to="/courses">{t.home.cta}</Link>
             <Link className="btn btn-ghost" to="/about">{t.home.story}</Link>
           </p>
         </div>
@@ -40,7 +40,7 @@ export function Home() {
       <Reveal>
         <p className="aviso">
           <span>{t.home.notice}</span>
-          <Link to="/about">{t.home.noticeLink}</Link>
+          <Link to="/about#entities">{t.home.noticeLink}</Link>
         </p>
       </Reveal>
 
@@ -48,21 +48,35 @@ export function Home() {
         <div className="wrap narrativa">
           <Reveal className="narrativa-bloco">
             <div className="narrativa-foto">
+              <img src="/images/community.webp" alt="" />
+            </div>
+            <div className="narrativa-texto">
+              <p className="kicker">{t.home.whoTitle}</p>
+              <h2 className="titulo-secao">{t.home.whoTitle}</h2>
+              <p className="lede">{t.home.who}</p>
+              <p className="muted" style={{ marginTop: "1rem" }}>{t.home.whoMore}</p>
+              <p style={{ marginTop: "1.4rem" }}>
+                <Link className="link-forte" to="/about">{t.home.story} →</Link>
+              </p>
+            </div>
+          </Reveal>
+          <Reveal className="narrativa-bloco narrativa-bloco--inv" delay={80}>
+            <div className="narrativa-foto">
               <img src="/images/missao.jpg" alt="" />
             </div>
             <div className="narrativa-texto">
               <p className="kicker">{t.home.missionTitle}</p>
-              <h2 className="titulo-secao">{t.home.missionTitle}</h2>
+              <h2 className="titulo-secao">{t.home.missionKicker}</h2>
               <p className="lede">{t.home.mission}</p>
             </div>
           </Reveal>
-          <Reveal className="narrativa-bloco narrativa-bloco--inv" delay={80}>
+          <Reveal className="narrativa-bloco" delay={80}>
             <div className="narrativa-foto">
               <img src="/images/visao.jpg" alt="" />
             </div>
             <div className="narrativa-texto">
               <p className="kicker">{t.home.visionTitle}</p>
-              <h2 className="titulo-secao">{t.home.visionTitle}</h2>
+              <h2 className="titulo-secao">{t.home.visionKicker}</h2>
               <p className="lede">{t.home.vision}</p>
             </div>
           </Reveal>

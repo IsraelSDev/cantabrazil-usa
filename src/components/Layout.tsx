@@ -7,12 +7,19 @@ import { useI18n } from "../i18n/LanguageContext";
 
 export function Layout() {
   const { t } = useI18n();
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const [showCookies, setShowCookies] = useState(false);
 
   useEffect(() => {
+    if (hash) {
+      const id = hash.slice(1);
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      return;
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   useEffect(() => {
     setShowCookies(localStorage.getItem("cbso-cookies") !== "ok");
