@@ -66,16 +66,6 @@ export function Header() {
         </nav>
 
         <div className="acoes">
-          <a
-            className="doar-br"
-            href="https://www.institutocantabrazil.com.br/doar"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span aria-hidden="true">🇧🇷</span>
-            <span>{t.nav.brazil}</span>
-            <span aria-hidden="true">↗</span>
-          </a>
           <div className="lang">
             <button className="lang-btn" type="button" onClick={() => setLangOpen((v) => !v)} aria-expanded={langOpen}>
               <span>{languages.find((l) => l.id === lang)?.flag}</span>
@@ -136,9 +126,6 @@ export function Header() {
               <NavLink className="titulo" to="/contact">{t.nav.contact}</NavLink>
             </div>
             <NavLink className="btn" to="/sponsor">{t.nav.sponsor}</NavLink>
-            <a className="doar-br" href="https://www.institutocantabrazil.com.br/doar" target="_blank" rel="noopener noreferrer">
-              🇧🇷 {t.nav.brazil} ↗
-            </a>
             <div className="bloco" style={{ marginTop: "1rem" }}>
               {languages.map((item) => (
                 <button

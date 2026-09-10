@@ -30,13 +30,6 @@ export function Sponsor() {
             <p style={{ margin: "1.2rem 0" }}>
               <Link className="btn" to="/contact">{c.boxCta}</Link>
             </p>
-            <h2>{c.brazilTitle}</h2>
-            <p className="muted">{c.brazil}</p>
-            <p style={{ marginTop: "1rem" }}>
-              <a className="btn btn-navy" href="https://www.institutocantabrazil.com.br/doar" target="_blank" rel="noopener noreferrer">
-                {c.brazilBtn} ↗
-              </a>
-            </p>
           </aside>
         </div>
       </article>

@@ -11,13 +11,13 @@ const LanguageContext = createContext<Ctx | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
-    const stored = localStorage.getItem("cbso-lang");
+    const stored = localStorage.getItem("icbs-lang");
     return stored === "pt" ? "pt" : "en";
   });
 
   const setLang = (next: Lang) => {
     setLangState(next);
-    localStorage.setItem("cbso-lang", next);
+    localStorage.setItem("icbs-lang", next);
   };
 
   useEffect(() => {
