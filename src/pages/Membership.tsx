@@ -12,7 +12,6 @@ export function Membership() {
       <article className="conteudo">
         <p>{c.p1}</p>
         <p>{c.p2}</p>
-        <p>{c.p3}</p>
         <p style={{ marginTop: "2rem" }}>
           <Link className="btn" to="/sponsor">{c.cta}</Link>
         </p>

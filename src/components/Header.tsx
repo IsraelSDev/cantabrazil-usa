@@ -9,6 +9,8 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const mobileRef = useRef<HTMLDetailsElement>(null);
+  const langRef = useRef<HTMLDivElement>(null);
+  const current = languages.find((item) => item.id === lang) ?? languages[0];
 
   useEffect(() => {
     if (mobileRef.current) mobileRef.current.open = false;
@@ -22,11 +24,31 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (!langOpen) return;
+    const onPointer = (event: MouseEvent) => {
+      if (!langRef.current?.contains(event.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLangOpen(false);
+    };
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [langOpen]);
+
   return (
     <header className={scrolled ? "topo topo--scrolled" : "topo"}>
       <div className="topo-interno">
         <NavLink className="marca" to="/" aria-label={t.meta.org}>
-          <img src="/logos/logo-horizontal.png" alt={t.meta.org} width={1024} height={280} />
+          <span className="marca-fundo">
+            <img src="/logos/logo-horizontal.png" alt={t.meta.org} width={1024} height={280} />
+          </span>
         </NavLink>
 
         <nav className="nav-principal" aria-label="Menu">
@@ -66,10 +88,16 @@ export function Header() {
         </nav>
 
         <div className="acoes">
-          <div className="lang">
-            <button className="lang-btn" type="button" onClick={() => setLangOpen((v) => !v)} aria-expanded={langOpen}>
-              <span>{languages.find((l) => l.id === lang)?.flag}</span>
-              <span>{languages.find((l) => l.id === lang)?.label}</span>
+          <div className="lang" ref={langRef}>
+            <button
+              className="lang-btn"
+              type="button"
+              onClick={() => setLangOpen((v) => !v)}
+              aria-expanded={langOpen}
+              aria-label={t.nav.language}
+            >
+              <span>{current.flag}</span>
+              <span>{current.label}</span>
               <span className="seta">▾</span>
             </button>
             {langOpen ? (
@@ -78,7 +106,7 @@ export function Header() {
                   <li key={item.id}>
                     <button
                       type="button"
-                      aria-current={item.id === lang}
+                      aria-current={item.id === lang ? "true" : undefined}
                       onClick={() => {
                         setLang(item.id);
                         setLangOpen(false);
@@ -126,14 +154,14 @@ export function Header() {
               <NavLink className="titulo" to="/contact">{t.nav.contact}</NavLink>
             </div>
             <NavLink className="btn" to="/sponsor">{t.nav.sponsor}</NavLink>
-            <div className="bloco" style={{ marginTop: "1rem" }}>
+            <div className="bloco idiomas-movel">
+              <p className="titulo">{t.nav.language}</p>
               {languages.map((item) => (
                 <button
                   key={item.id}
                   type="button"
                   className="lang-btn"
-                  style={{ marginRight: "0.5rem", marginTop: "0.4rem" }}
-                  aria-current={item.id === lang}
+                  aria-current={item.id === lang ? "true" : undefined}
                   onClick={() => setLang(item.id)}
                 >
                   {item.flag} {item.label}

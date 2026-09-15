@@ -27,8 +27,9 @@ export function Sponsor() {
           <aside className="sponsor-box">
             <h2>{c.boxTitle}</h2>
             <p className="muted">{c.box}</p>
-            <p style={{ margin: "1.2rem 0" }}>
-              <Link className="btn" to="/contact">{c.boxCta}</Link>
+            <p style={{ margin: "1.2rem 0", display: "grid", gap: "0.7rem" }}>
+              <Link className="btn" to="/checkout">{c.checkoutCta}</Link>
+              <Link className="btn btn-ghost" to="/contact">{c.boxCta}</Link>
             </p>
           </aside>
         </div>

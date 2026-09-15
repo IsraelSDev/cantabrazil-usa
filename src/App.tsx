@@ -9,6 +9,7 @@ import { NewTalents } from "./pages/NewTalents";
 import { Membership } from "./pages/Membership";
 import { Contact } from "./pages/Contact";
 import { Sponsor } from "./pages/Sponsor";
+import { Checkout } from "./pages/Checkout";
 import { CookiePolicy } from "./pages/CookiePolicy";
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/scholarships" element={<Membership />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/sponsor" element={<Sponsor />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/cookie-policy" element={<CookiePolicy />} />
 
         <Route path="/education" element={<Navigate to="/experience" replace />} />
@@ -37,7 +39,7 @@ export default function App() {
         <Route path="/impact" element={<Navigate to="/about" replace />} />
         <Route path="/environment" element={<Navigate to="/experience" replace />} />
         <Route path="/entrepreneurship" element={<Navigate to="/experience" replace />} />
-        <Route path="/donate" element={<Navigate to="/sponsor" replace />} />
+        <Route path="/donate" element={<Navigate to="/checkout" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

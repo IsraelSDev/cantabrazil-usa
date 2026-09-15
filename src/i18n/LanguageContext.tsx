@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import { dictionaries, type Copy, type Lang } from "./copy";
+import { dictionaries, isLang, langMeta, type Copy, type Lang } from "./copy";
 
 type Ctx = {
   lang: Lang;
@@ -8,20 +8,23 @@ type Ctx = {
 };
 
 const LanguageContext = createContext<Ctx | null>(null);
+const STORAGE_KEY = "icbs-lang";
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
-    const stored = localStorage.getItem("icbs-lang");
-    return stored === "pt" ? "pt" : "en";
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return isLang(stored) ? stored : "en";
   });
 
   const setLang = (next: Lang) => {
     setLangState(next);
-    localStorage.setItem("icbs-lang", next);
+    localStorage.setItem(STORAGE_KEY, next);
   };
 
   useEffect(() => {
-    document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+    const meta = langMeta[lang];
+    document.documentElement.lang = meta.html;
+    document.documentElement.dir = meta.dir;
     document.title = `${dictionaries[lang].meta.tagline} — ${dictionaries[lang].meta.org}`;
   }, [lang]);
 
